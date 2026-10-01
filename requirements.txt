@@ -1,0 +1,9 @@
+# TP2 — Data Lake MinIO / Python / PySpark
+# Dependances Python
+
+boto3
+botocore
+pyspark==3.5.1
+pandas
+openpyxl
+python-dotenv

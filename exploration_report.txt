@@ -1,0 +1,187 @@
+
+# VENTES  (raw/ventes/ventes.csv)
+Taille de l'objet : 2887 octets
+Format : CSV | encodage : utf-8-sig
+Separateur : ','
+
+## Source : ventes
+Enregistrements : 81 | Colonnes : 6
+
+colonne                 dtype pandas  type infere  manquants       distincts
+id_vente                str           texte            0 ( 0.0%)         80
+date_vente              str           date             1 ( 1.2%)         53
+id_client               str           texte            0 ( 0.0%)         11
+id_produit              str           texte            0 ( 0.0%)         11
+id_magasin              str           texte            0 ( 0.0%)          7
+quantite                float64       decimal          1 ( 1.2%)          8
+
+Apercu (3 premieres lignes) :
+  id_vente  date_vente id_client id_produit id_magasin quantite
+0     V001  2026-03-23      C002       P001       M006      3.0
+1     V002  2026-02-01      C004       P003       M006      1.0
+2     V003  2026-03-28      C009       P002       M005      4.0
+
+Cle candidate detectee : 'id_vente'
+
+Stats quantite : min=-2 max=6 moy=3.42 mediane=3
+
+Plage de dates date_vente : 2026-01-02 -> 2026-03-30
+
+Anomalies detectees :
+  - date_vente : 1 valeur(s) manquante(s) (1.2%)
+  - quantite : 1 valeur(s) manquante(s) (1.2%)
+  - 1 ligne(s) entierement dupliquee(s)
+  - Cle 'id_vente' : 1 ligne(s) en trop pour des cles repetees (1 exactes, 0 avec contenu different)
+  - quantite : 1 valeur(s) negative(s) (min -2)
+  - quantite : 1 valeur(s) egale(s) a 0
+  - date_vente : 1 date(s) invalide(s) ('2026-02-30')
+
+# CLIENTS  (raw/clients/clients.json)
+Taille de l'objet : 1226 octets
+Format : JSON classique
+
+## Source : clients
+Enregistrements : 11 | Colonnes : 4
+
+colonne                 dtype pandas  type infere  manquants       distincts
+id_client               str           texte            0 ( 0.0%)         10
+nom                     str           texte            0 ( 0.0%)         10
+ville                   str           texte            1 ( 9.1%)          8
+segment                 str           texte            2 (18.2%)          2
+
+Apercu (3 premieres lignes) :
+  id_client             nom     ville        segment
+0      C001    Alice Martin      Lyon    Particulier
+1      C002    Karim Diallo     PARIS    Particulier
+2      C003  Sophie Bernard   Nantes   Professionnel
+
+Cle candidate detectee : 'id_client'
+
+Modalites nom : 'Inès Laurent'x2, 'Alice Martin'x1, 'Karim Diallo'x1, 'Sophie Bernard'x1, 'Jean Kouassi'x1, 'Mariam Traoré'x1, 'Lucas Robert'x1, 'Fatou Mensah'x1, 'Emma Petit'x1, 'Noah Morel'x1
+
+Modalites ville : 'Lyon'x2, 'Lille'x2, 'PARIS'x1, ' Nantes 'x1, 'Marseille'x1, 'paris'x1, 'Rennes'x1, 'NANTES'x1
+
+Modalites segment : 'Particulier'x6, 'Professionnel'x3
+
+Anomalies detectees :
+  - ville : 1 valeur(s) manquante(s) (9.1%)
+  - segment : 2 valeur(s) manquante(s) (18.2%)
+  - 1 ligne(s) entierement dupliquee(s)
+  - Cle 'id_client' : 1 ligne(s) en trop pour des cles repetees (1 exactes, 0 avec contenu different)
+  - ville : 1 valeur(s) avec espaces superflus (' Nantes ')
+  - ville : 2 valeur(s) avec variantes de casse (ex. [['NANTES', 'Nantes'], ['PARIS', 'paris']])
+
+# PRODUITS  (raw/produits/produits.xml)
+Taille de l'objet : 1596 octets
+Format : XML | racine <produits> | element d'enregistrement : <produit>
+
+## Source : produits
+Enregistrements : 10 | Colonnes : 4
+
+colonne                 dtype pandas  type infere  manquants       distincts
+id_produit              str           texte            0 ( 0.0%)         10
+nom_produit             str           texte            0 ( 0.0%)         10
+categorie               str           texte            1 (10.0%)          4
+prix_unitaire           str           decimal          0 ( 0.0%)         10
+
+Apercu (3 premieres lignes) :
+  id_produit         nom_produit     categorie prix_unitaire
+0       P001    Clavier sans fil  Informatique          29.9
+1       P002  Souris ergonomique  Informatique          24.5
+2       P003        Casque audio         Audio          49.9
+
+Cle candidate detectee : 'id_produit'
+
+Stats prix_unitaire : min=16.9 max=59 moy=33.73 mediane=30.95
+
+Modalites nom_produit : 'Clavier sans fil'x1, 'Souris ergonomique'x1, 'Casque audio'x1, 'Enceinte Bluetooth'x1, 'Lampe LED'x1, 'Gourde inox'x1, 'Sac à dos'x1, 'Support ordinateur'x1, 'Webcam HD'x1, 'Chargeur USB-C'x1
+
+Modalites categorie : 'Informatique'x3, 'Audio'x2, 'Maison'x2, 'Accessoires'x2
+
+Anomalies detectees :
+  - categorie : 1 valeur(s) manquante(s) (10.0%)
+
+# MAGASINS  (raw/magasins/magasins.xlsx)
+Taille de l'objet : 3855 octets
+Format : Excel | feuilles : ['Magasins']
+
+## Source : magasins
+Enregistrements : 6 | Colonnes : 4
+
+colonne                 dtype pandas  type infere  manquants       distincts
+id_magasin              str           texte            0 ( 0.0%)          6
+nom_magasin             str           texte            0 ( 0.0%)          6
+ville                   str           texte            0 ( 0.0%)          6
+region                  str           texte            0 ( 0.0%)          6
+
+Apercu (3 premieres lignes) :
+  id_magasin       nom_magasin   ville                region
+0       M001       Lyon Centre    Lyon  Auvergne-Rhône-Alpes
+1       M002  Paris République   Paris         Île-de-France
+2       M003     Nantes Centre  Nantes      Pays de la Loire
+
+Cle candidate detectee : 'id_magasin'
+
+Modalites nom_magasin : 'Lyon Centre'x1, 'Paris République'x1, 'Nantes Centre'x1, 'Marseille Prado'x1, 'Rennes Centre'x1, 'Lille Centre'x1
+
+Modalites ville : 'Lyon'x1, 'Paris'x1, 'Nantes'x1, 'Marseille'x1, ' Rennes 'x1, 'LILLE'x1
+
+Modalites region : 'Auvergne-Rhône-Alpes'x1, 'Île-de-France'x1, 'Pays de la Loire'x1, "Provence-Alpes-Côte d'Azur"x1, 'Bretagne'x1, 'Hauts-de-France'x1
+
+Anomalies detectees :
+  - ville : 1 valeur(s) avec espaces superflus (' Rennes ')
+
+## Coherence referentielle : ventes -> clients / produits / magasins
+clients : jointure probable ventes.id_client -> clients.id_client
+   0 element(s) de clients sans aucune vente (information)
+produits : jointure probable ventes.id_produit -> produits.id_produit
+   0 element(s) de produits sans aucune vente (information)
+magasins : jointure probable ventes.id_magasin -> magasins.id_magasin
+   0 element(s) de magasins sans aucune vente (information)
+
+Anomalies detectees :
+  - ventes.id_client : 1 vente(s) sans correspondance dans clients (1 valeur(s) : 'C999')
+  - ventes.id_produit : 1 vente(s) sans correspondance dans produits (1 valeur(s) : 'P999')
+  - ventes.id_magasin : 1 vente(s) sans correspondance dans magasins (1 valeur(s) : 'M999')
+
+## Images produits (conservees dans RAW, non traitees)
+Nombre d'images : 8
+Extensions : {'jpg': 8}
+Tailles : min 4759 o, max 5038 o
+Correspondance noms d'images <-> produits.id_produit
+
+Anomalies detectees :
+  - 2 produit(s) sans image ('P009', 'P010')
+
+# SYNTHESE DES ANOMALIES (a reporter dans le README)
+
+ventes :
+  - date_vente : 1 valeur(s) manquante(s) (1.2%)
+  - quantite : 1 valeur(s) manquante(s) (1.2%)
+  - 1 ligne(s) entierement dupliquee(s)
+  - Cle 'id_vente' : 1 ligne(s) en trop pour des cles repetees (1 exactes, 0 avec contenu different)
+  - quantite : 1 valeur(s) negative(s) (min -2)
+  - quantite : 1 valeur(s) egale(s) a 0
+  - date_vente : 1 date(s) invalide(s) ('2026-02-30')
+
+clients :
+  - ville : 1 valeur(s) manquante(s) (9.1%)
+  - segment : 2 valeur(s) manquante(s) (18.2%)
+  - 1 ligne(s) entierement dupliquee(s)
+  - Cle 'id_client' : 1 ligne(s) en trop pour des cles repetees (1 exactes, 0 avec contenu different)
+  - ville : 1 valeur(s) avec espaces superflus (' Nantes ')
+  - ville : 2 valeur(s) avec variantes de casse (ex. [['NANTES', 'Nantes'], ['PARIS', 'paris']])
+
+produits :
+  - categorie : 1 valeur(s) manquante(s) (10.0%)
+
+magasins :
+  - ville : 1 valeur(s) avec espaces superflus (' Rennes ')
+
+coherence referentielle :
+  - ventes.id_client : 1 vente(s) sans correspondance dans clients (1 valeur(s) : 'C999')
+  - ventes.id_produit : 1 vente(s) sans correspondance dans produits (1 valeur(s) : 'P999')
+  - ventes.id_magasin : 1 vente(s) sans correspondance dans magasins (1 valeur(s) : 'M999')
+
+images :
+  - 2 produit(s) sans image ('P009', 'P010')

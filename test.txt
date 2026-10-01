@@ -1,0 +1,5 @@
+s3.upload_file(
+    "test.txt",
+    "tp2",
+    "raw/test.txt"
+)
